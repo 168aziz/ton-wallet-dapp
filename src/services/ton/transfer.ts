@@ -40,25 +40,35 @@ export async function sendTransfer(params: TransferParams): Promise<number> {
   return seqno;
 }
 
+export type ConfirmationResult = 'confirmed' | 'timeout' | 'network-error';
+
 /**
  * Wait for a transaction to confirm by polling seqno.
+ * Retries on network errors (502, timeouts) instead of throwing.
  */
 export async function waitForTransaction(
   publicKey: Uint8Array,
   previousSeqno: number,
   timeoutMs: number = 60_000,
-): Promise<boolean> {
+): Promise<ConfirmationResult> {
   const client = await getTonClient();
   const wallet = createWalletContract(publicKey);
   const contract = client.open(wallet);
 
   const startTime = Date.now();
+  let consecutiveErrors = 0;
 
   while (Date.now() - startTime < timeoutMs) {
-    const currentSeqno = await contract.getSeqno();
-    if (currentSeqno > previousSeqno) return true;
-    await new Promise((resolve) => setTimeout(resolve, 2_000));
+    try {
+      const currentSeqno = await contract.getSeqno();
+      consecutiveErrors = 0;
+      if (currentSeqno > previousSeqno) return 'confirmed';
+    } catch {
+      consecutiveErrors++;
+      if (consecutiveErrors >= 10) return 'network-error';
+    }
+    await new Promise((resolve) => setTimeout(resolve, 3_000));
   }
 
-  return false;
+  return 'timeout';
 }
