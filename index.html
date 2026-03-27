@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TON Wallet</title>
+    <script>
+      // Restore SPA route from 404.html redirect
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var route = q.get('route');
+        if (route) {
+          q.delete('route');
+          var qs = q.toString();
+          history.replaceState(null, '', route + (qs ? '?' + qs : ''));
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
