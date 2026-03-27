@@ -116,8 +116,8 @@ export function DashboardPage() {
   const displayBalance = balance !== null ? formatTon(balance) : '0';
 
   return (
-    <div className="flex min-h-screen flex-col pb-6">
-      <div className="flex items-center justify-between px-6 pt-5 pb-2">
+    <div className="flex min-h-screen flex-col pb-6 sm:min-h-0 sm:pb-8">
+      <div className="flex items-center justify-between px-6 pt-5 pb-2 sm:px-8">
         <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
           TON Wallet
         </p>
@@ -131,7 +131,7 @@ export function DashboardPage() {
         </div>
       </div>
 
-      <div className="mx-6 mt-2 rounded-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-6 text-white shadow-lg">
+      <div className="mx-6 mt-2 rounded-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-6 text-white shadow-lg sm:mx-8 sm:p-8">
         <button
           onClick={handleCopy}
           className="flex w-full items-center gap-2 text-left transition hover:opacity-80"
@@ -146,7 +146,7 @@ export function DashboardPage() {
         </button>
 
         <div className="mt-5">
-          <p className="text-4xl font-bold tracking-tight">
+          <p className="text-4xl font-bold tracking-tight sm:text-5xl">
             {loadingBalance && balance === null ? (
               <span className="animate-pulse">···</span>
             ) : (
@@ -157,7 +157,7 @@ export function DashboardPage() {
         </div>
       </div>
 
-      <div className="mx-6 mt-5 grid grid-cols-2 gap-3">
+      <div className="mx-6 mt-5 grid grid-cols-2 gap-3 sm:mx-8">
         <Link
           to="/receive"
           className="flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white py-3.5 font-medium shadow-sm transition hover:bg-gray-50"
@@ -172,7 +172,7 @@ export function DashboardPage() {
         </Link>
       </div>
 
-      <div className="mx-6 mt-6 flex-1">
+      <div className="mx-6 mt-6 flex-1 sm:mx-8">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold text-gray-900">Transactions</h2>
           <button

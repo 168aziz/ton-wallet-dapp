@@ -172,7 +172,7 @@ export function SendPage() {
 
   if (step === 'sending') {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6">
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6 sm:min-h-0 sm:py-20">
         <div className="h-12 w-12 animate-spin rounded-full border-4 border-blue-200 border-t-blue-600" />
         <h1 className="text-xl font-bold">Sending {amount} TON</h1>
         <p className="text-sm text-gray-500">Waiting for network confirmation...</p>
@@ -183,7 +183,7 @@ export function SendPage() {
 
   if (step === 'success') {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6">
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6 sm:min-h-0 sm:py-20">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-3xl">
           ✓
         </div>
@@ -204,7 +204,7 @@ export function SendPage() {
   if (step === 'pending') {
     const isPoorConnection = confirmResult === 'network-error';
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6">
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6 sm:min-h-0 sm:py-20">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-100 text-3xl">
           ⏳
         </div>
@@ -242,7 +242,7 @@ export function SendPage() {
 
   if (step === 'error') {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6">
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 p-6 sm:min-h-0 sm:py-20">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-3xl">
           ✗
         </div>
@@ -268,7 +268,7 @@ export function SendPage() {
 
   if (step === 'confirm') {
     return (
-      <div className="flex min-h-screen flex-col gap-5 px-6 py-10">
+      <div className="flex min-h-screen flex-col gap-5 px-6 py-10 sm:min-h-0 sm:px-8 sm:py-12">
         <div className="flex items-center">
           <button onClick={() => setStep('form')} className="text-sm text-gray-400 hover:text-gray-600">
             &larr; Edit
@@ -338,7 +338,7 @@ export function SendPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col gap-5 px-6 py-10">
+    <div className="flex min-h-screen flex-col gap-5 px-6 py-10 sm:min-h-0 sm:px-8 sm:py-12">
       <div className="flex items-center">
         <button onClick={() => navigate('/dashboard')} className="text-sm text-gray-400 hover:text-gray-600">
           &larr; Back

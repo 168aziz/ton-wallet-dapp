@@ -90,13 +90,13 @@ export function ImportWalletPage() {
 
   if (step === 'enter-mnemonic') {
     return (
-      <div className="flex min-h-screen flex-col items-center gap-6 px-6 py-10">
-        <h1 className="text-2xl font-bold">Import Wallet</h1>
-        <p className="text-center text-sm text-gray-500">
+      <div className="flex min-h-screen flex-col items-center gap-6 px-6 py-10 sm:min-h-0 sm:px-10 sm:py-12">
+        <h1 className="text-2xl font-bold sm:text-3xl">Import Wallet</h1>
+        <p className="text-center text-sm text-gray-500 sm:max-w-md">
           Enter your 12-word recovery phrase. You can paste all words at once into the first field.
         </p>
 
-        <div className="grid w-full max-w-sm grid-cols-3 gap-2">
+        <div className="grid w-full max-w-sm grid-cols-3 gap-2 sm:max-w-md sm:grid-cols-4">
           {words.map((word, i) => (
             <div key={i} className="flex items-center gap-1">
               <span className="w-5 text-right text-xs text-gray-400">{i + 1}.</span>
@@ -115,7 +115,7 @@ export function ImportWalletPage() {
 
         <button
           onClick={handleValidate}
-          className="w-full max-w-sm rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700"
+          className="w-full max-w-sm rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700 sm:max-w-md"
         >
           Validate & Continue
         </button>
@@ -130,13 +130,13 @@ export function ImportWalletPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-6">
-      <h1 className="text-2xl font-bold">Set Password</h1>
-      <p className="text-center text-gray-500">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-6 sm:min-h-0 sm:py-16">
+      <h1 className="text-2xl font-bold sm:text-3xl">Set Password</h1>
+      <p className="text-center text-gray-500 sm:max-w-md">
         This password encrypts your wallet on this device.
       </p>
 
-      <div className="flex w-full max-w-sm flex-col gap-3">
+      <div className="flex w-full max-w-sm flex-col gap-3 sm:max-w-md">
         <input
           type="password"
           value={password}
@@ -159,7 +159,7 @@ export function ImportWalletPage() {
       <button
         onClick={handleSave}
         disabled={saving}
-        className="w-full max-w-sm rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700 disabled:opacity-50"
+        className="w-full max-w-sm rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700 disabled:opacity-50 sm:max-w-md"
       >
         {saving ? 'Importing wallet...' : 'Import Wallet'}
       </button>

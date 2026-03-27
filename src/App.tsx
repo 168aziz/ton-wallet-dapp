@@ -46,7 +46,7 @@ function AppRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="mx-auto min-h-screen max-w-md bg-white">
+      <div className="mx-auto min-h-screen w-full bg-white shadow-none sm:my-6 sm:max-w-lg sm:min-h-0 sm:rounded-2xl sm:shadow-xl md:max-w-xl lg:max-w-2xl">
         <AppRoutes />
       </div>
     </BrowserRouter>

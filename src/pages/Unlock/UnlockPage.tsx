@@ -43,9 +43,9 @@ export function UnlockPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-6">
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 p-6 sm:min-h-0 sm:py-20">
       <div className="text-center">
-        <h1 className="text-2xl font-bold">Unlock Wallet</h1>
+        <h1 className="text-2xl font-bold sm:text-3xl">Unlock Wallet</h1>
         <p className="mt-2 text-gray-500">Enter your password to continue</p>
       </div>
 
@@ -55,7 +55,7 @@ export function UnlockPage() {
         onChange={(e) => setPassword(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleUnlock()}
         placeholder="Password"
-        className="w-full max-w-sm rounded-xl border border-gray-300 px-4 py-3 focus:border-blue-500 focus:outline-none"
+        className="w-full max-w-sm rounded-xl border border-gray-300 px-4 py-3 focus:border-blue-500 focus:outline-none sm:max-w-md"
         autoFocus
       />
 
@@ -64,7 +64,7 @@ export function UnlockPage() {
       <button
         onClick={handleUnlock}
         disabled={loading}
-        className="w-full max-w-sm rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700 disabled:opacity-50"
+        className="w-full max-w-sm rounded-xl bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700 disabled:opacity-50 sm:max-w-md"
       >
         {loading ? 'Unlocking...' : 'Unlock'}
       </button>

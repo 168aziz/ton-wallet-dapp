@@ -21,8 +21,8 @@ export function ReceivePage() {
   const tonLink = `ton://transfer/${address}`;
 
   return (
-    <div className="flex min-h-screen flex-col items-center gap-6 px-6 py-10">
-      <div className="flex w-full max-w-sm items-center">
+    <div className="flex min-h-screen flex-col items-center gap-6 px-6 py-10 sm:min-h-0 sm:px-10 sm:py-12">
+      <div className="flex w-full max-w-sm items-center sm:max-w-md">
         <button
           onClick={() => navigate('/dashboard')}
           className="text-sm text-gray-400 hover:text-gray-600"
@@ -43,7 +43,7 @@ export function ReceivePage() {
         />
       </div>
 
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-sm sm:max-w-md">
         <p className="mb-2 text-center text-xs font-medium uppercase tracking-wide text-gray-400">
           Your wallet address
         </p>
@@ -56,7 +56,7 @@ export function ReceivePage() {
 
       <button
         onClick={handleCopy}
-        className={`w-full max-w-sm rounded-xl px-6 py-3 font-medium transition ${
+        className={`w-full max-w-sm rounded-xl px-6 py-3 font-medium transition sm:max-w-md ${
           copied
             ? 'bg-green-500 text-white'
             : 'bg-blue-600 text-white hover:bg-blue-700'
