@@ -4,10 +4,10 @@ import { WORKCHAIN } from '../../constants/config';
 import type { WalletKeys } from '../../types';
 
 /**
- * Generate a new 24-word mnemonic.
+ * Generate a new 12-word mnemonic.
  */
 export async function generateMnemonic(): Promise<string[]> {
-  return mnemonicNew(24);
+  return mnemonicNew(12);
 }
 
 /**
